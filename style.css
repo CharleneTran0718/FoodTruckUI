@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Expletus+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Expletus Sans', sans-serif; 
+    box-sizing: border-box;
+}
+
+/* section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(images/bg.webp);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 50px;
+}
+ */
+
+ section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px;
+    background: linear-gradient(to bottom, #8bcaf4, #c5eeff);
+    backdrop-filter: blur(10px);
+    overflow: hidden; /* Ensure the circles stay within the section */
+}
+
+section::before, section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3); /* Adjust opacity as needed */
+    mix-blend-mode: overlay; /* Apply a blending mode for a glassy effect */
+}
+
+section::before {
+    transform: translate(-50%, -50%); /* Adjust position */
+    animation: moveCircles1 10s linear infinite alternate; /* Adjust animation duration */
+}
+
+section::after {
+    transform: translate(50%, 50%); /* Adjust position */
+    animation: moveCircles2 15s linear infinite alternate; /* Adjust animation duration */
+}
+
+@keyframes moveCircles1 {
+    from {
+        top: 0;
+        left: 0;
+    }
+    to {
+        top: 100%;
+        left: 100%;
+    }
+}
+
+@keyframes moveCircles2 {
+    from {
+        top: 100%;
+        left: 100%;
+    }
+    to {
+        top: 0;
+        left: 0;
+    }
+}
+
+
+
+.container{
+    position: relative;
+    width: calc(100% - 100px);
+    min-height: calc(100vh - 280px);
+    min-height: 300px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+header{  /* navbar */
+    position: absolute;
+    top: -40px;
+    right: 20px;
+    left: 20px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+header .logo{
+    color: #8e248e;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+header ul{
+    display: flex;
+}
+
+header ul li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+header ul li a{
+    text-decoration: none;
+    font-weight: 500;
+    color: #8e248e;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: transform 0.3s ease; /* Add a smooth transition */
+    display: block;
+}
+
+/* header ul li a:hover, header ul li a.active{
+    background: #ffffffc1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+} */
+
+header ul li a:hover {
+    transform: translateY(-3px); /* Move the text 3px up on hover */
+    color: #b26bb7; /* Lighter purple color */
+    transition: transform 0.3s ease, color 0.3s ease; /* Add smooth transition */
+}
+
+
+header ul li a.active {
+    /* Add a glowing effect using box-shadow */
+    background: #ffffffc1;
+    filter: drop-shadow(0 0 0px rgba(0, 0, 255, 0.5)); /* Add blue glow effect */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: -7px;
+    transition: transform 0.5s ease, filter 0.3s ease; /* Add smooth transition effect for transform and filter */
+}
+
+.logo:hover img {
+    transform: rotate(360deg) scale(1.2); /* Rotate the image by 360 degrees and scale it up by 20% on hover */
+    filter: brightness(120%); /* Increase brightness by 20% on hover */
+}
+
+
+.content{
+    transform: translateX(-100px);
+    max-width: 1000px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 40px;
+    padding-left: 110px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.content h2{
+    font-size: 3em;
+    color: #183142;
+}
+
+.content p{
+    font-size: 1.2em; 
+    color: #495057; 
+}
+
+/* .content a{
+    display: inline-block;
+    padding: 15px 30px;
+    background: #fff;
+    color: #971400;
+    margin-top: 20px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* post food truck */
+.button {
+    --light: #d9d9d9;
+    --dark: #b60101;
+    --active: 0;
+  
+    cursor: pointer;
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  
+    transform-origin: center;
+  
+    background-color: transparent;
+  
+    border: none;
+  }
+  
+  .button:hover {
+    --active: 1;
+  }
+  
+  .icon_cont {
+    overflow: clip;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: calc(var(--active) * 1.5rem + (1 - var(--active)) * 0.5rem);
+    height: calc(var(--active) * 1.5rem + (1 - var(--active)) * 0.5rem);
+    background-color: hsla(0, 0%, 85%, var(--active));
+  
+    border: 1px solid var(--dark);
+    border-radius: 9999px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .icon {
+    font-size: 0.75rem;
+    color: var(--dark);
+    line-height: 1rem;
+  
+    transform: translateX(calc(-1rem * (1 - var(--active))));
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .text_button {
+    position: relative;
+  
+    display: inline-block;
+  
+    padding-block: 0.5rem;
+  
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+  
+    text-transform: capitalize;
+  }
+  .text_button::before {
+    content: "";
+  
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  
+    width: calc((1 - var(--active)) * 100%);
+    height: 1px;
+    background-color: var(--dark);
+  
+    border-radius: 9999px;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .imagebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure the container takes up full height */
+  }
+  
+.imagebox img {
+    max-width: 700px;
+    animation: animate 5s linear infinite;
+    margin-left: -20vw; 
+}
+  
+
+@keyframes animate{
+    0%, 100%{
+        transform: translateX(50px);
+    }
+    50%{
+        transform: translateX(100px);
+    }
+}
+
+
+@media (max-width: 1200px){
+    .container{
+        position: relative;
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 992px){
+    section{
+        padding: 50px 10px 10px;
+    }
+    .container{
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .container .content{
+        transform: translateX(0px);
+        max-width: 100%;
+        padding: 30px;
+        margin-top: 20px;
+    }
+    header{
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+        top: -60%;
+        padding: 20px;
+        right: 0;
+        left: 0;
+    }
+    header ul{
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    header ul li{
+        margin: 2px;
+    }
+    header ul li a{
+        display: inline-block;
+    }
+    .imagebox{
+        margin-bottom: 50px;
+    }
+    .content a{
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    @keyframes animate{
+        0%, 100%{
+            transform: translateX(-20px);
+        }
+        50%{
+            transform: translateX(20px);
+        }
+    }
+    
+}
